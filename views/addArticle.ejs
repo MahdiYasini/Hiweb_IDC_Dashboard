@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/addArticle.css">
+    <link rel="icon" href="/images/general/favicon-16x16.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/css/setUpFont.css">
+    <title>افزودن مقاله</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">
+                اضافه کردن خاطره</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <% include ./partials/menuBar %>
+            </div>
+        </nav>
+        <div class="mt-5 card ">
+            <% include ./partials/messages %>
+            <div class="card-body">
+                <form 
+                    action="/addArticle" 
+                    method="POST"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input
+                                type="file"
+                                name="postImage"
+                                class="custom-file-input"
+                                id="inputGroupFile02"
+                                accept="application/x-zip-compressed,image/*"
+                              />
+                              <label
+                                class="custom-file-label text-center"
+                                for="inputGroupFile02"
+                                >عکس مقاله</label
+                              >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectArea">موضوع*</label>
+                        <textarea rows="1" dir="rtl" class="form-control" id="subjectArea" placeholder="اسم چی بذاریم"
+                            name="subject"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="summaryArea">خلاصه‌ای از مقاله‌ی خود بنویسید*</label>
+                        <textarea dir="rtl" name="summery" class="form-control" id="summaryArea"
+                            placeholder="برگی از مقاله‌ام"></textarea>
+                    </div>
+                    <div class="form-group ">
+                        <label for="articleArea">مقاله را در این قسمت بنویسید*</label>
+                        <textarea dir="rtl" rows="19" name="article" class="form-control" id="articleArea"
+                            placeholder="می‌نویسم هرآنچه را که از دلم فوران می‌کند"></textarea>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="articleArea">کلید واژه ‌های مقاله خود را بنویسید</label>
+                        <textarea dir="rtl" name="articleKeys" class="form-control" id="articleArea"
+                            placeholder="کلید واژه‌ها را با فاصله از هم جدا کنید."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-switch  d-flex ">
+                          <input name="shareToTelegramChannel" type="checkbox" class="custom-control-input" id="customSwitch1">
+                          <label class="custom-control-label" for="customSwitch1">در کانال تلگرام سفرنامه منتشر کنیم؟</label>
+                        </div>
+                      </div>
+                    <div class="form-group text-center">
+                        <a href="/dashboard" class="btn btn-danger mr-5 px-4">منصرف شدم</a>
+                        <button type="submit" class="btn btn-primary  px-4">به خاطراتمون اضافه کنیم</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
